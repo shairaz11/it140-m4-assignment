@@ -3,8 +3,8 @@ START
 Display "Welcome to the Higher/Lower Game!"
 
 // Get lower and upper bounds
-INPUT lowerBound
-INPUT upperBound
+INPUT lowerBound: 1
+INPUT upperBound: 10
 
 // Validate bounds
 WHILE lowerBound >= upperBound
