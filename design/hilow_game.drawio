@@ -1,49 +1,59 @@
-START
+// Higher/Lower Game Pseudocode
 
-Display "Welcome to the Higher/Lower Game!"
+Declare Integer lowerBound
+Declare Integer upperBound
+Declare Integer randomNumber
+Declare Integer guess
 
-// Get lower and upper bounds
-INPUT lowerBound: 1
-INPUT upperBound: 10
+Output "Welcome to the Higher/Lower Game!"
 
-// Validate bounds
-WHILE lowerBound >= upperBound
-    Display "Invalid range. Lower bound must be less than upper bound."
-    INPUT lowerBound
-    INPUT upperBound
-END WHILE
+// Get valid lower and upper bounds
+Output "Enter the lower bound:"
+Input lowerBound
+
+Output "Enter the upper bound:"
+Input upperBound
+
+While lowerBound >= upperBound
+    Output "Error: Lower bound must be less than upper bound."
+
+    Output "Enter the lower bound:"
+    Input lowerBound
+
+    Output "Enter the upper bound:"
+    Input upperBound
+End While
 
 // Generate random number
-SET randomNumber = Random number between lowerBound and upperBound
+randomNumber = Random Number Between lowerBound and upperBound
 
-// Get first guess
-INPUT guess
+// Get user's first guess
+Output "Enter a guess between ", lowerBound, " and ", upperBound, ":"
+Input guess
 
 // Validate guess
-WHILE guess < lowerBound OR guess > upperBound
-    Display "Invalid guess. Enter a number between lowerBound and upperBound."
-    INPUT guess
-END WHILE
+While guess < lowerBound OR guess > upperBound
+    Output "Invalid guess. Please enter a number within the range."
+    Input guess
+End While
 
-// Game loop
-WHILE guess != randomNumber
+// Continue game until correct guess
+While guess <> randomNumber
 
-    IF guess < randomNumber THEN
-        Display "Too low! Try again."
-    ELSE
-        Display "Too high! Try again."
-    END IF
+    If guess < randomNumber Then
+        Output "Too low! Try again."
+    Else
+        Output "Too high! Try again."
+    End If
 
-    INPUT guess
+    Output "Enter a guess between ", lowerBound, " and ", upperBound, ":"
+    Input guess
 
-    // Validate new guess
-    WHILE guess < lowerBound OR guess > upperBound
-        Display "Invalid guess. Enter a number between lowerBound and upperBound."
-        INPUT guess
-    END WHILE
+    While guess < lowerBound OR guess > upperBound
+        Output "Invalid guess. Please enter a number within the range."
+        Input guess
+    End While
 
-END WHILE
+End While
 
-Display "Congratulations! You guessed the correct number!"
-
-END
+Output "Correct! You guessed the number!"
